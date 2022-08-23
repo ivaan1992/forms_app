@@ -1,1 +1,76 @@
-<p>basics works!</p>
+<h2>Template: Basics</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="save()"
+          #myForm="ngForm"
+          autocomplete="off">
+        <!--Product Input-->
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Product</label>
+            <div class="col-sm-9">
+
+              <input type="text"
+                     class="form-control"
+                     [ngModel] ="initialForm.product"
+                     name="product"
+                     placeholder="Product Name"
+                     required
+                     minlength="3">
+
+              <span class="form-text text-danger"
+                    *ngIf="validName()">
+                     It must contain at least 3 letters
+            </span>
+            </div>
+          </div>
+
+        <!--Price Input-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Price</label>
+          <div class="col-sm-9">
+            <input type="number"
+                   class="form-control"
+                   [ngModel]="initialForm.price"
+                   name="price"
+                   placeholder="Product Price"
+                   required
+                   minlength="1">
+            <span class="form-text text-danger"
+                     *ngIf="validPrice()">
+                      The price should be $1 or higher
+             </span>
+          </div>
+         </div>
+
+         <!--Stock Field-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Stocks</label>
+          <div class="col-sm-9">
+            <input type="number"
+                   class="form-control"
+                   [ngModel]="initialForm.stocks"
+                   name="stocks"
+                   customMin
+                   [minimum]="0"
+                   placeholder="Product Stocks"
+                   required>
+          </div>
+         </div>
+
+         <div class="row">
+          <div class="col">
+            <button type="submit"
+                    [disabled]="myForm.invalid"
+                    class="btn btn-primary float-end">
+              Save Info
+            </button>
+          </div>
+         </div>
+
+    </form>
+  </div>
+</div>
+
+
