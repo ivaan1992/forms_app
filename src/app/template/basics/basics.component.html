@@ -1,1 +1,48 @@
-<p>basics works!</p>
+<h2>Template: Basics</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <form action="">
+        <!--Product Input-->
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Product</label>
+            <div class="col-sm-9">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Product Name">
+              <span class="form-text text-danger">It must contain only 3 letters</span>
+            </div>
+          </div>
+
+        <!--Price Input-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Price</label>
+          <div class="col-sm-9">
+            <input type="number"
+                   class="form-control"
+                   placeholder="Product Price">
+          </div>
+         </div>
+
+         <!--Stock Field-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Stocks</label>
+          <div class="col-sm-9">
+            <input type="number"
+                   class="form-control"
+                   placeholder="Product Stocks">
+          </div>
+         </div>
+
+         <div class="row">
+          <div class="col">
+            <button type="submit"
+                    class="btn btn-primary float-end">
+              Save Info
+            </button>
+          </div>
+         </div>
+    </form>
+  </div>
+</div>
