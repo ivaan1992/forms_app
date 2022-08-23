@@ -36,7 +36,11 @@
                    name="price"
                    placeholder="Product Price"
                    required
-                   min="0">
+                   minlength="1">
+            <span class="form-text text-danger"
+                     *ngIf="validPrice()">
+                      The price should be $1 or higher
+             </span>
           </div>
          </div>
 
@@ -48,18 +52,23 @@
                    class="form-control"
                    ngModel
                    name="stocks"
-                   placeholder="Product Stocks">
+                   customMin
+                   [minimum]="0"
+                   placeholder="Product Stocks"
+                   required>
           </div>
          </div>
 
          <div class="row">
           <div class="col">
             <button type="submit"
+                    [disabled]="myForm.invalid"
                     class="btn btn-primary float-end">
               Save Info
             </button>
           </div>
          </div>
+
     </form>
   </div>
 </div>
@@ -79,6 +88,9 @@
 
     <span>Value</span>
     <pre>{{ myForm.value | json }}</pre>
+
+    <span>CustomDirective</span>
+    <pre>{{ myForm.controls.stocks?.errors | json }}</pre>
 
   </div>
 </div>
