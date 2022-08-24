@@ -33,9 +33,13 @@
       <div class="col-sm-9">
         <div class="input-group">
           <input class="form-control"
-                placeholder="Add favorite game">
+                placeholder="Add favorite game"
+                [(ngModel)]="newGame"
+                (keyup.enter)="addGame()"
+                name="newGame">
             <button class="btn btn-outline-warning"
-                    type="button">
+                    type="button"
+                    (click)="addGame()">
               Add New Game
             </button>
         </div>

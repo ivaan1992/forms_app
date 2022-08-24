@@ -20,6 +20,8 @@ interface Favorite {
 
 export class DynamicsComponent {
 
+  newGame: string = ''
+
   person: Person = {
     name: 'Ivan',
     favorites: [
@@ -35,6 +37,16 @@ export class DynamicsComponent {
 
   deleteGame( index: number ) {
     this.person.favorites.splice( index, 1 );
+  }
+
+  addGame() {
+    const newFavoriteGame: Favorite = {
+      id: this.person.favorites.length + 1,
+      game_name: this.newGame
+    }
+
+    this.person.favorites.push({ ...newFavoriteGame });
+    this.newGame = ''
   }
 
 }
