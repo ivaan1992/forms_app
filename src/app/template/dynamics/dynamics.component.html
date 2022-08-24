@@ -6,15 +6,17 @@
       #myDynamicForm="ngForm"
       autocomplete="off">
 
+      <!--Name-->
+
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Name</label>
 
     <div class="col-sm-9">
       <input type="text"
             class="form-control"
-            ngModel
+            [ngModel]="person.name"
             name="name"
-            placeholder="Person's name"
+            placeholder="User's name"
             required>
             <span
                class="form-text text-danger"
@@ -24,31 +26,47 @@
     </div>
   </div>
 
-  <div class="mb-3 row">
-    <label class="col-sm-9 col-form-label">Add</label>
 
-    <div class="input-group">
-      <input class="form-control"
-            placeholder="Add favorite game">
-        <button class="btn btn-outline-warning"
-                type="button">
-          Add Game
-        </button>
-    </div>
+        <!--Add Game-->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Add Game</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <input class="form-control"
+                placeholder="Add favorite game">
+            <button class="btn btn-outline-warning"
+                    type="button">
+              Add New Game
+            </button>
+        </div>
+      </div>
   </div>
+
+
+    <!--Game List-->
 
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Game List</label>
 
     <div class="col-sm-9">
 
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
-      <input class="form-control mb-3" >
+      <div *ngFor="let game of person.favorites; let i = index"
+            class="input-group mb-3">
+
+        <input
+               [(ngModel)]="game.game_name"
+               [name]=" 'favorite_' + i "
+               class="form-control mb-3"
+               required>
+        <button class="btn btn-outline-danger"
+               type="button"
+               (click)="deleteGame(i)">
+         Delete Game
+       </button>
+
+      </div>
+
+
 
     </div>
   </div>
@@ -65,8 +83,8 @@
   </div>
 
 
-
-
-
-
 </form>
+
+
+<span>Person</span>
+<pre>{{ person | json }}</pre>
