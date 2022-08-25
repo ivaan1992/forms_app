@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-switches',
   templateUrl: './switches.component.html',
   styleUrls: []
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  person = {
+    genre: '',
+    notifications: true,
   }
+
+  termsAndConditions: boolean = false;
 
 }
