@@ -2,7 +2,9 @@
 <hr>
 
 
-<form>
+<form autocomplete="off"
+      [formGroup]="gameForm"
+      (ngSubmit)="saveFormInfo()">
 
       <!--Name-->
 
@@ -13,10 +15,11 @@
       <input type="text"
             class="form-control"
             placeholder="User's name"
+            formControlName="user"
             required>
-            <span
+            <span *ngIf="showErrorMessage('user')"
                class="form-text text-danger">
-              This input should not be empty
+              This input should has at least 3 characters
             </span>
     </div>
   </div>
@@ -47,8 +50,8 @@
 
       <div class="input-group mb-3">
 
-        <input class="form-control mb-3"
-               required>
+        <input class="form-control mb-3">
+
         <button class="btn btn-outline-danger"
                type="button">
          Delete Game
@@ -63,7 +66,7 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <button type="button"
+      <button type="submit"
               class="btn btn-primary float-end">
         Save
       </button>
