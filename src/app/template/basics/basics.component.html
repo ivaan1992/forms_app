@@ -74,3 +74,24 @@
 </div>
 
 
+<div class="row">
+  <div class="col">
+
+    <span>Valid</span>
+    <pre>{{ myForm.valid }}</pre>
+
+    <span>Pristine</span>
+    <pre>{{ myForm.pristine }}</pre>
+
+    <span>Touched</span>
+    <pre>{{ myForm.touched }}</pre>
+
+    <span>Value</span>
+    <pre>{{ myForm.value | json }}</pre>
+
+    <span>Custom Directive</span>
+    <pre>{{ myForm.controls.stocks.errors | json }}</pre>
+
+  </div>
+</div>
+
