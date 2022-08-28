@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-switches',
   templateUrl: './switches.component.html',
   styleUrls: []
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent {
 
-  constructor() { }
+  switchForm: FormGroup = this.fb.group({
 
-  ngOnInit(): void {
+  })
+
+  person = {
+    genre: 'M',
+    notif: true,
   }
+
+
+  constructor( private fb: FormBuilder ) { }
 
 }
