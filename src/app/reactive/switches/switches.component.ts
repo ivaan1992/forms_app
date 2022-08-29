@@ -22,14 +22,25 @@ export class SwitchesComponent implements OnInit {
   constructor( private fb: FormBuilder ) { }
 
   ngOnInit() {
-
     this.switchForm.reset({
       ...this.person,
       conditions: false
     })
 
+    this.switchForm.valueChanges.subscribe( ({
+      conditions, ...rest
+    }) => {
+      this.person = rest
+    })
+
+  }
+
+  saveInfo() {
+    const formValue = this.switchForm.value;
+    delete formValue.conditions;
 
 
+    this.person = formValue;
   }
 
 
