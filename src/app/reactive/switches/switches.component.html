@@ -2,7 +2,7 @@
 <hr>
 
 
-<form>
+<form [formGroup]="switchForm" (submit)="saveInfo()">
 
   <!-- Radios -->
 
@@ -13,8 +13,9 @@
       <div class="form-check">
         <input class="form-check-input"
                type="radio"
-               id="radioMale"
-               required>
+               value="M"
+               formControlName="genre"
+               id="radioMale">
 
         <label class="form-check-label" for="flexRadioDefault1">
              Male
@@ -24,8 +25,9 @@
       <div class="form-check">
         <input class="form-check-input"
                type="radio"
-               id="radioFemale"
-               required>
+               value="F"
+               formControlName="genre"
+               id="radioFemale">
         <label class="form-check-label" for="flexRadioDefault2">
           Female
         </label>
@@ -45,6 +47,7 @@
         <input class="form-check-input"
                type="checkbox"
                role="switch"
+               formControlName="notif"
                id="flexSwitchCheckChecked">
         <label class="form-check-label" for="flexSwitchCheckChecked">I would like to receive notifications</label>
       </div>
@@ -61,6 +64,7 @@
         <div class="form-check">
           <input class="form-check-input"
                  type="checkbox"
+                 formControlName="conditions"
                  id="flexCheckDefault"
                  required>
           <label class="form-check-label" for="flexCheckDefault">
@@ -75,29 +79,23 @@
 
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end">
+          <button class="btn btn-primary float-end"
+                  type="submit">
             Save Info
           </button>
         </div>
       </div>
 </form>
 
-<!--
+
 <h5>Form value</h5>
-<pre>{{ mySwitchForm.value | json }}</pre>
+<pre>{{ switchForm.value | json }}</pre>
 <br>
 
 <h5>Person</h5>
 <pre>{{ person | json }}</pre>
 <br>
 
-<h5>Terms</h5>
-<pre>{{ mySwitchForm.controls.terms.errors | json }}</pre>
-<br>
-
 <h5>Valid</h5>
-<pre>{{ mySwitchForm.valid | json }}</pre>
+<pre>{{ switchForm.valid | json }}</pre>
 <br>
-
-<h5>Conditions:</h5>
-<pre></pre> -->
